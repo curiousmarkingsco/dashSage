@@ -17,6 +17,15 @@
 	"permissions": [
 		"storage"
 	],
+  "web_accessible_resources": [
+    {
+      "resources": ["editor.html?config=Dashboard", "newtab.html?page=Dashboard", "appSage/dist/appSage_editor.tailwind.js", "appSage/dist/appSage_preview.tailwind.js"],
+      "matches": ["<all_urls>"]
+    }
+  ],
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self';"
+  },
 	"host_permissions": [
 		"https://github.com/*"
 	],
@@ -35,5 +44,8 @@
 		"service_worker": "background.js",
 		"type": "module",
 		"scripts": [ "background.js" ]
-	}
+	},
+  "chrome_url_overrides": {
+    "newtab": "newtab.html"
+  }
 }
