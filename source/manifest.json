@@ -1,13 +1,13 @@
 {
-	"name": "Awesome Extension",
+	"name": "dashSage",
 	"version": "0.0.0",
-	"description": "An awesome new browser extension",
-	"homepage_url": "https://github.com/fregante/browser-extension-template",
+	"description": "Make your browser's new tab become a fully customizable dashboard.",
+	"homepage_url": "https://github.com/curiousmarkingsco/dashSage",
 	"manifest_version": 3,
 	"minimum_chrome_version": "121",
 	"browser_specific_settings": {
 		"gecko": {
-			"id": "awesome-extension@notlmn.github.io",
+			"id": "contact@curiousmarkings.com",
 			"strict_min_version": "109.0"
 		}
 	},
@@ -19,26 +19,16 @@
 	],
   "web_accessible_resources": [
     {
-      "resources": ["editor.html?config=Dashboard", "newtab.html?page=Dashboard", "appSage/dist/appSage_editor.tailwind.js", "appSage/dist/appSage_preview.tailwind.js"],
+      "resources": ["editor.html?config=Dashboard", "newtab.html?page=Dashboard", "appSage/dist/appSage_editor.tailwind.js", "appSage/dist/appSage_preview.tailwind.js", "appSage/dist/appSage.css"],
       "matches": ["<all_urls>"]
     }
   ],
   "content_security_policy": {
     "extension_pages": "script-src 'self'; object-src 'self';"
   },
-	"host_permissions": [
-		"https://github.com/*"
-	],
-	"content_scripts": [
-		{
-			"matches": [ "https://github.com/fregante/browser-extension-template/*" ],
-			"js": [ "content.js" ],
-			"css": [ "content.css" ],
-			"run_at": "document_end"
-		}
-	],
 	"options_ui": {
-		"page": "options.html"
+		"page": "options.html?config=Dashboard",
+    "open_in_tab": true
 	},
 	"background": {
 		"service_worker": "background.js",
